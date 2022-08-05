@@ -51,7 +51,7 @@ namespace Sea_Cucumber.Models
                 foreach (var seaCucumber in seaCucumbers)
                 {
                     var targetPos = seaCucumber.GetTargetPosition(SeaMap.Width, SeaMap.Height);
-                    seaCucumber.CanMove = SeaMap.Map[targetPos.Y][targetPos.X] == '.'; //PlaceIsAvailabele()
+                    seaCucumber.CanMove = PositionIsAvailable(targetPos);
                 }
 
                 foreach (var seaCucumber in seaCucumbers.Where(x => x.CanMove))
@@ -62,6 +62,11 @@ namespace Sea_Cucumber.Models
             }
 
             IterationCounter++;
+        }
+
+        private bool PositionIsAvailable(Coordinates targetPos)
+        {
+            return SeaMap.Map[targetPos.Y][targetPos.X] == '.';
         }
 
         internal int GetMaxIterations()

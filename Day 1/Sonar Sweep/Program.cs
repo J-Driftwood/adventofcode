@@ -16,7 +16,6 @@ namespace Sonar_Sweep
             Console.WriteLine($"Part 1: There are {result} entries which were bigger than the previous value.");
 
             // Part 2
-
             var slidingWindowList = DepthMeassurementService.ConvertToSlidingWindowList(depthMeassurements);
             result = DepthMeassurementService.CountDepthMeassurementIncreases(slidingWindowList);
 
